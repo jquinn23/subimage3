@@ -28,8 +28,8 @@ import os
 try:
   import cv2
 except ImportError as e:
-  print 'Could not import cv2. Please install current version of opencv and python binding.'
-  print 'This message is provided because opencv is not managed via pypi (pip install) package mgr.'
+  print('Could not import cv2. Please install current version of opencv and python binding.')
+  print('This message is provided because opencv is not managed via pypi (pip install) package mgr.')
   raise e
 
 class ConnectedComponent(object):
@@ -119,20 +119,20 @@ def main():
     outfile = args.output
 
   if not os.path.isfile(infile):
-    print 'Please provide a regular existing input files. Use -h option for help.'
+    print('Please provide a regular existing input files. Use -h option for help.')
     sys.exit(-1)
 
   if args.verbose:
-    print 'Processing primary input file ' + infile + '.'
-    print 'Generating output ' + outfile
+    print('Processing primary input file ' + infile + '.')
+    print('Generating output ' + outfile)
 
   image_locations = find_by_ar_from_files(infile, args.aspect, args.error)
   if image_locations:
     if args.verbose:
-      print str(len(image_locations)) + ' components of appropriate aspect ratio found.'
+      print(str(len(image_locations)) + ' components of appropriate aspect ratio found.')
     save_output(infile, outfile, image_locations)
   elif args.verbose:
-    print 'No components of appropriate aspect ratio found in image.'
+    print('No components of appropriate aspect ratio found in image.')
 
 if __name__ == '__main__':
   main()
