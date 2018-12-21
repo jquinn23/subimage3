@@ -72,7 +72,7 @@ def draw_bounding_boxes(img,connected_components,max_size=0,min_size=0,color=(0,
     if min_size > 0 and area_bb(component)**0.5<min_size: continue
     if max_size > 0 and area_bb(component)**0.5>max_size: continue
     (ys,xs)=component[:2]
-    cv2.rectangle(img,(xs.start,ys.start),(xs.stop,ys.stop),color,line_size)
+    cv2.rectangle(img,(math.ceil(xs.start),math.ceil(ys.start)),(math.ceil(xs.stop),math.ceil(ys.stop)),color,line_size)
 
 def save_output(infile, outfile, connected_components):
   img = cv2.imread(infile)
