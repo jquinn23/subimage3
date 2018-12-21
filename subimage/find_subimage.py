@@ -88,8 +88,8 @@ def  find_subimages_from_files(primary_image_filename, subimage_filename, confid
   (running separately on each channel and combining the cross correlations?) is probably
   necessary.  
   '''
-  primary = cv2.imread(primary_image_filename, cv2.CV_LOAD_IMAGE_GRAYSCALE)
-  subimage = cv2.imread(subimage_filename, cv2.CV_LOAD_IMAGE_GRAYSCALE)
+  primary = cv2.imread(primary_image_filename, cv2.IMREAD_GRAYSCALE)
+  subimage = cv2.imread(subimage_filename, cv2.IMREAD_GRAYSCALE)
   return find_subimages(primary, subimage, confidence)
 
 
