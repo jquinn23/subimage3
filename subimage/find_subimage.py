@@ -25,8 +25,8 @@ import os
 try:
   import cv2
 except ImportError as e:
-  print 'Could not import cv2. Please install current version of opencv and python binding.'
-  print 'This message is provided because opencv is not managed via pypi (pip install) package mgr.'
+  print('Could not import cv2. Please install current version of opencv and python binding.')
+  print('This message is provided because opencv is not managed via pypi (pip install) package mgr.')
   raise e
 
 
@@ -109,20 +109,20 @@ def main():
   outfile = args.output
 
   if not os.path.isfile(primary_image_filename) or not os.path.isfile(subimage_filename):
-    print 'Please provide a regular existing input files. Use -h option for help.'
+    print('Please provide a regular existing input files. Use -h option for help.')
     sys.exit(-1)
 
   if args.verbose:
-    print '\tProcessing primary input file ' + primary_image_filename + ' and subimage file ' + primary_image_filename + '.'
-    print '\tGenerating output ' + outfile
+    print('\tProcessing primary input file ' + primary_image_filename + ' and subimage file ' + primary_image_filename + '.')
+    print('\tGenerating output ' + outfile)
 
   image_locations = find_subimages_from_files(primary_image_filename, subimage_filename,confidence=args.confidence,)
 
   save_output(primary_image_filename, outfile, image_locations)
 
   if args.verbose:
-    print 'Instances of subimage {subimage} in primary image {primary} were found at:'.format(subimage=subimage_filename, primary=primary_image_filename)
-    print str(image_locations)
+    print('Instances of subimage {subimage} in primary image {primary} were found at:'.format(subimage=subimage_filename, primary=primary_image_filename))
+    print(str(image_locations))
 
 if __name__ == '__main__':
   main()
